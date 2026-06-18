@@ -21,4 +21,15 @@ public class ProduitService {
     public Produit ajouterProduit(Produit produit) {
         return produitRepository.save(produit);
     }
+
+
+
+public String deleteProduit(Long id) {
+    if (produitRepository.existsById(id)) {
+        produitRepository.deleteById(id);
+        return "Produit supprimé";
+    }
+    return "Produit introuvable";
+}
+
 }

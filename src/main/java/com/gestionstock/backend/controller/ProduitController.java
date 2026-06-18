@@ -15,13 +15,26 @@ public class ProduitController {
     @Autowired
     private ProduitService produitService;
 
+
+//fonction pour voir la liste des produits
     @GetMapping
     public List<Produit> getAllProduits() {
         return produitService.getAllProduits();
     }
-
+// fonction pour ajouter un produit
     @PostMapping
     public Produit ajouterProduit(@RequestBody Produit produit) {
         return produitService.ajouterProduit(produit);
     }
+
+//fonction pour supprimer un produit
+
+
+@DeleteMapping("/{id}")
+public String deleteProduit(@PathVariable Long id) {
+    return produitService.deleteProduit(id);
 }
+
+
+}
+
