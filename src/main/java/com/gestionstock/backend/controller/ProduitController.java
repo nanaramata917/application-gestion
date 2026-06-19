@@ -2,6 +2,7 @@ package com.gestionstock.backend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.gestionstock.backend.entity.Produit;
@@ -35,6 +36,28 @@ public String deleteProduit(@PathVariable Long id) {
     return produitService.deleteProduit(id);
 }
 
+//@GetMapping("/{id}")
+//public Produit getProduitById(@PathVariable Long id) {
+  //  return produitService.getProduitById(id);
+//}
+
+//@GetMapping("/{id}")
+//public String getProduitById(@PathVariable Long id) {
+   // return "ID reçu : " + id;
+//}
+
+//@GetMapping("/{id}")
+//public Produit getProduitById(@PathVariable Long id) {
+    //return produitService.getProduitById(id);
+//}
+
+
+//VERSION PRO OPTION API REST
+@GetMapping("/{id}")
+public ResponseEntity<Produit> getProduitById(@PathVariable Long id) {
+    Produit produit = produitService.getProduitById(id);
+    return ResponseEntity.ok(produit);
+}
 
 }
 

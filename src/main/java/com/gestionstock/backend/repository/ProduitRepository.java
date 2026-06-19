@@ -9,3 +9,6 @@ import com.gestionstock.backend.entity.Produit;
 public interface ProduitRepository extends JpaRepository<Produit, Long> {
 
 }
+
+
+

@@ -32,4 +32,15 @@ public String deleteProduit(Long id) {
     return "Produit introuvable";
 }
 
+//FONCTION POUR RECHERCHER UN PRODUIT
+
+//public Produit getProduitById(Long id) {
+   // return produitRepository.findById(id).orElse(null);
+//}
+public Produit getProduitById(Long id) {
+    return produitRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Produit introuvable"));
+}
+
+
 }
