@@ -43,4 +43,20 @@ public Produit getProduitById(Long id) {
 }
 
 
+//FONCTION MODIFIER PRODUIT
+public Produit updateProduit(Long id, Produit newProduit) {
+    return produitRepository.findById(id).map(produit -> {
+
+        produit.setNom(newProduit.getNom());
+        produit.setQuantite(newProduit.getQuantite());
+        produit.setPrix(newProduit.getPrix());
+
+        return produitRepository.save(produit);
+
+    }).orElseThrow(() -> new RuntimeException("Produit introuvable"));
+}
+
+
+
+
 }

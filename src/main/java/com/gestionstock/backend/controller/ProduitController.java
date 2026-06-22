@@ -59,5 +59,12 @@ public ResponseEntity<Produit> getProduitById(@PathVariable Long id) {
     return ResponseEntity.ok(produit);
 }
 
+
+@PutMapping("/{id}")
+public ResponseEntity<Produit> updateProduit(@PathVariable Long id, @RequestBody Produit produit) {
+    Produit updated = produitService.updateProduit(id, produit);
+    return ResponseEntity.ok(updated);
+}
+
 }
 
